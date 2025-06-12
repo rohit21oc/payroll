@@ -1,0 +1,61 @@
+<div class="payroll-container">
+  <!-- Sidebar remains unchanged -->
+
+  <div class="content">
+    <!-- ✅ Added paySlip reference here -->
+    <div #paySlip>
+       <div class="pdf-header" style="text-align: center; margin-bottom: 20px;">
+    <h2>TVM Infotech PVT LTD</h2>
+  </div>
+      <div class="card employee-card" *ngIf="employee">
+        <h3>Employee Information</h3>
+        <div class="info-row">
+          <p><strong>ID:</strong> {{ employee.id }}</p>
+          <p><strong>Name:</strong> {{ employee.firstName }} {{ employee.lastName }}</p>
+          <p><strong>Email:</strong> {{ employee.email }}</p>
+          <p><strong>Phone:</strong> {{ employee.phone }}</p>
+          <p><strong>Designation:</strong> {{ employee.designation }}</p>
+          <p><strong>Department:</strong> {{ employee.department }}</p>
+          <p><strong>Joining Date:</strong> {{ employee.joiningDate }}</p>
+        </div>
+      </div>
+
+      <div class="card salary-card">
+        <h3>Pay Run Summary - June</h3>
+        <p><strong>Total CTC:</strong> ₹{{ ctc }}</p>
+
+        <div class="salary-section">
+          <div class="earnings">
+            <h4>Earnings</h4>
+            <p><strong>Basic Salary:</strong> ₹{{ basicSalary }}</p>
+            <label>HRA: <input type="number" [(ngModel)]="hra" (input)="calculateSalary()" /></label>
+            <label>Bonus: <input type="number" [(ngModel)]="bonus" (input)="calculateSalary()" /></label>
+            <label>Variable Pay: <input type="number" [(ngModel)]="variablePay" (input)="calculateSalary()" /></label>
+          </div>
+
+          <div class="deductions">
+            <h4>Deductions</h4>
+            <label>PF: <input type="number" [(ngModel)]="pf" (input)="calculateSalary()" /></label>
+            <label>ESI: <input type="number" [(ngModel)]="esi" (input)="calculateSalary()" /></label>
+          </div>
+        </div>
+
+        <div class="summary">
+          <p><strong>Expected In-Hand:</strong> ₹{{ inHandExpected }}</p>
+          <p>
+            <strong>Net Pay:</strong>
+            <span [style.color]="netPay !== inHandExpected ? 'red' : 'green'">₹{{ netPay.toFixed(2) }}</span>
+          </p>
+          <div *ngIf="netPay !== inHandExpected" class="error">
+            ⚠️ Net Pay is not equal to expected in-hand salary.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ Button is outside the #paySlip div -->
+    <div class="download-btn-container">
+      <button (click)="downloadPayslip()">Download Pay Slip</button>
+    </div>
+  </div>
+</div>

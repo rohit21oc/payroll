@@ -1,0 +1,10 @@
+<div class="sidebar" [class.active]="isSidebarOpen">
+  <h2 routerLink="/" class="logo" style="cursor: pointer;">Payroll</h2>
+  <ul class="nav-links">
+    <li><a routerLink="/"><i class="ri-speed-up-line"></i> Dashboard</a></li>
+    <li><a routerLink="/employees"><i class="ri-user-3-line"></i> Employees</a></li>
+    <li><a routerLink="/payruns"><i class="ri-money-rupee-circle-line"></i> Pay Runs</a></li>
+  </ul>
+</div>
+
+<button class="toggle-btn" (click)="toggleSidebar()">☰</button>

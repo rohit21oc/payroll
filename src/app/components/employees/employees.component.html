@@ -1,0 +1,83 @@
+<div class="employee-header">
+  <h2>Active Employees</h2>
+  <button class="add-btn" (click)="navigateToAddEmployee()">Add Employee</button>
+</div>
+
+
+<!-- Filters -->
+<div class="filters">
+  <select [(ngModel)]="selectedLocation">
+  <option value="">Select Work Location</option>
+  <option value="Bangalore">Bangalore</option>
+  <option value="Chennai">Chennai</option>
+  <option value="Hyderabad">Hyderabad</option>
+  <option value="Mumbai">Mumbai</option>
+  <option value="Pune">Pune</option>
+  <option value="Delhi">Delhi</option>
+  <option value="Noida">Noida</option>
+  <option value="Kolkata">Kolkata</option>
+  <option value="Ahmedabad">Ahmedabad</option>
+  <option value="Jaipur">Jaipur</option>
+  <option value="Other">Other</option>
+</select>
+
+
+  <select [(ngModel)]="selectedDepartment">
+  <option value="">Select Department</option>
+  <option value="Frontend Development">Frontend Development</option>
+  <option value="Backend Development">Backend Development</option>
+  <option value="Full Stack Development">Full Stack Development</option>
+  <option value="DevOps & Deployment">DevOps & Deployment</option>
+  <option value="Software Architecture">Software Architecture</option>
+</select>
+
+
+  <select [(ngModel)]="selectedDesignation">
+  <option value="">Select Designation</option>
+  <option value="Frontend Developer">Frontend Developer</option>
+  <option value="Backend Developer">Backend Developer</option>
+  <option value="Full Stack Developer">Full Stack Developer</option>
+  <option value="QA Engineer">QA Engineer</option>
+  <option value="DevOps Engineer">DevOps Engineer</option>
+  <option value="Project Manager">Project Manager</option>
+</select>
+
+
+  <button class="search-btn" (click)="applyFilters()">Search</button>
+</div>
+
+<!-- Employee Table -->
+<div class="employee-table">
+  <table>
+    <thead>
+      <tr>
+        <th><input type="checkbox" /></th>
+        <th>Employee Name</th>
+        <th>Designation</th>
+        <th>Email</th>
+        <th>Department</th>
+        <th>Status</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of filteredEmployees">
+        <td><input type="checkbox" /></td>
+        <td>
+          <div class="profile-info">
+            <img [src]="emp.profileImageUrl || 'https://via.placeholder.com/30'" alt="avatar" />
+            <div (click)="viewPayRun(emp.id)" style="cursor:pointer;">
+              <div class="name"><b class="text-primary">{{ emp.firstName }} {{ emp.lastName }}</b></div>
+              <div class="designation text-success">{{ emp.id }}</div>
+            </div>
+          </div>
+        </td>
+        <td>{{ emp.designation }}</td>
+        <td>{{ emp.email }}</td>
+        <td>{{ emp.department }}</td>
+        <td>{{ emp.status }}</td>
+        <td>{{ emp.location }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

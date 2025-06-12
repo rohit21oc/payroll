@@ -1,0 +1,3 @@
+.router-outlet{
+    width: calc(100vw - 15vw);
+}
