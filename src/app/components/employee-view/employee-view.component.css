@@ -1,0 +1,76 @@
+.container{
+    margin-left: 200px;
+     max-width: 1000px;
+     margin-bottom: 20px;
+     margin-top: 20px;
+}
+.btn-sm {
+  margin-top: 8px;
+}
+
+
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.card-header {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.img-thumbnail {
+  border-radius: 50%;
+  max-width: 100%;
+  height: auto;
+}
+
+.table {
+  font-size: 0.95rem;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+}
+
+h3, h4, h5 {
+  margin-bottom: 1rem;
+}
+
+/* Responsive design for smaller devices */
+@media (max-width: 768px) {
+  .col-md-4,
+  .col-md-8 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    
+  }
+  .container{
+    margin-left: 40px;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .table {
+    font-size: 0.9rem;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+  }
+
+  h5 {
+    font-size: 1.1rem;
+  }
+
+  .img-thumbnail {
+    width: 120px;
+  }
+}

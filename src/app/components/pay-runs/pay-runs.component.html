@@ -3,7 +3,7 @@
 
   <div class="content">
     <!-- ✅ Added paySlip reference here -->
-    <div #paySlip>
+    <div #paySlip >
        <div class="pdf-header" style="text-align: center; margin-bottom: 20px;">
     <h2>TVM Infotech PVT LTD</h2>
   </div>
@@ -23,6 +23,7 @@
       <div class="card salary-card">
         <h3>Pay Run Summary - June</h3>
         <p><strong>Total CTC:</strong> ₹{{ ctc }}</p>
+        <p><strong>Remaining CTC: ₹{{ remainingCtc }}</strong></p>
 
         <div class="salary-section">
           <div class="earnings">
@@ -43,17 +44,17 @@
         <div class="summary">
           <p><strong>Expected In-Hand:</strong> ₹{{ inHandExpected }}</p>
           <p>
-            <strong>Net Pay:</strong>
-            <span [style.color]="netPay !== inHandExpected ? 'red' : 'green'">₹{{ netPay.toFixed(2) }}</span>
+            <strong>Net Pay: </strong>
+            <!-- <span [style.color]="netPay !== inHandExpected ? 'red' : 'green'">₹{{ netPay.toFixed(2) }}</span> -->
+            <span [style.color]="'green'"> <b>₹{{ netPay.toFixed(2) }}</b></span>
           </p>
-          <div *ngIf="netPay !== inHandExpected" class="error">
+          <!-- <div *ngIf="netPay !== inHandExpected" class="error">
             ⚠️ Net Pay is not equal to expected in-hand salary.
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
 
-    <!-- ✅ Button is outside the #paySlip div -->
     <div class="download-btn-container">
       <button (click)="downloadPayslip()">Download Pay Slip</button>
     </div>

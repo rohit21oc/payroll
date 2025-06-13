@@ -4,6 +4,7 @@
   width: 98%;
 }
 
+
 .content {
   flex-grow: 1;
   padding: 20px;
@@ -75,7 +76,10 @@ input[type="number"] {
   .salary-section > div {
     width: 100%;
   }
-}
+  .payroll-container {
+    margin-left: 20px;
+  
+}}
 
 .download-btn-container {
   text-align: center;

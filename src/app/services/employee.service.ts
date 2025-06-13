@@ -27,6 +27,7 @@ import { Employee } from '../models/employee';
 })
 export class EmployeeService {
   private apiUrl = 'http://localhost:3000/employees'; // Local JSON path
+  employee: any;
 
   constructor(private http: HttpClient) {}
 
@@ -34,12 +35,24 @@ export class EmployeeService {
     return this.http.get<Employee[]>(this.apiUrl);
   }
 
-  getEmployeeById(id: string): Observable<Employee | undefined> {
-    return this.getEmployees().pipe(
-      map((employees) => employees.find(emp => emp.id === id))
-    );
-  }
+  // getEmployeeById(id: string): Observable<Employee | undefined> {
+  //   return this.getEmployees().pipe(
+  //     map((employees) => employees.find(emp => emp.id === id))
+  //   );
+  // }
+  getEmployeeById(id: string): Observable<Employee> {
+  return this.http.get<Employee>(`${this.apiUrl}/${id}`);
+}
+
   addEmployee(employee: Employee): Observable<Employee> {
     return this.http.post<Employee>(this.apiUrl, employee);
   }
+
+ updateEmployeeStatus(id: string, status: string): Observable<any> {
+  return this.http.patch(`${this.apiUrl}/${id}`, { status });
+}
+
+
+
+
 }

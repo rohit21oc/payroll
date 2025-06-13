@@ -22,13 +22,11 @@
 </select>
 
 
-  <select [(ngModel)]="selectedDepartment">
-  <option value="">Select Department</option>
-  <option value="Frontend Development">Frontend Development</option>
-  <option value="Backend Development">Backend Development</option>
-  <option value="Full Stack Development">Full Stack Development</option>
-  <option value="DevOps & Deployment">DevOps & Deployment</option>
-  <option value="Software Architecture">Software Architecture</option>
+  <select [(ngModel)]="selectedStatus">
+  <option value="">Select Status</option>
+  <option value="Active">Active</option>
+  <option value="Deactivated">Deactivated</option>
+  
 </select>
 
 
@@ -51,32 +49,40 @@
   <table>
     <thead>
       <tr>
-        <th><input type="checkbox" /></th>
+        <!-- <th><input type="checkbox" /></th> -->
+        <th>ID</th>
         <th>Employee Name</th>
         <th>Designation</th>
         <th>Email</th>
         <th>Department</th>
         <th>Status</th>
         <th>Location</th>
+        <th>Details</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let emp of filteredEmployees">
-        <td><input type="checkbox" /></td>
+        <td><div class="designation text-success" (click)="viewPayRun(emp)" style="cursor:pointer;"> {{ emp.id }}</div></td>
         <td>
           <div class="profile-info">
             <img [src]="emp.profileImageUrl || 'https://via.placeholder.com/30'" alt="avatar" />
-            <div (click)="viewPayRun(emp.id)" style="cursor:pointer;">
+            <div (click)="viewPayRun(emp)" style="cursor:pointer;">
               <div class="name"><b class="text-primary">{{ emp.firstName }} {{ emp.lastName }}</b></div>
-              <div class="designation text-success">{{ emp.id }}</div>
+              <!-- <div class="designation text-success">{{ emp.id }}</div> -->
             </div>
           </div>
         </td>
         <td>{{ emp.designation }}</td>
         <td>{{ emp.email }}</td>
         <td>{{ emp.department }}</td>
-        <td>{{ emp.status }}</td>
+        <td [ngClass]="{
+      'text-success font-weight-bold': emp.status === 'Active',
+      'text-danger font-weight-bold': emp.status === 'Deactivated'
+    }">
+ <b> {{ emp.status }}</b>
+</td>
         <td>{{ emp.location }}</td>
+        <td><button [routerLink]="['/employees/view', emp.id]" class="btn btn-primary">View</button></td>
       </tr>
     </tbody>
   </table>

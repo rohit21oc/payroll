@@ -14,7 +14,7 @@ export class EmployeesComponent implements OnInit {
 
   // Filters
   selectedLocation: string = '';
-  selectedDepartment: string = '';
+  selectedStatus: string = '';
   selectedDesignation: string = '';
 
   constructor(private employeeService: EmployeeService, private router: Router) {}
@@ -34,17 +34,22 @@ export class EmployeesComponent implements OnInit {
   applyFilters() {
     this.filteredEmployees = this.employees.filter(emp =>
       (this.selectedLocation === '' || emp.location === this.selectedLocation) &&
-      (this.selectedDepartment === '' || emp.department === this.selectedDepartment) &&
+      (this.selectedStatus === '' || emp.status === this.selectedStatus) &&
       (this.selectedDesignation === '' || emp.designation === this.selectedDesignation)
     );
   }
-  viewPayRun(empId: string) {
-  this.router.navigate(['/payruns', empId]);
+  viewPayRun(emp: any) {
+  if (emp.status === 'Active') {
+    this.router.navigate(['/payruns', emp.id]);
+  } else {
+    alert('Deactivated employee can\'t get salary.');
+  }
 }
+
 
   resetFilters() {
     this.selectedLocation = '';
-    this.selectedDepartment = '';
+    this.selectedStatus = '';
     this.selectedDesignation = '';
     this.filteredEmployees = [...this.employees];
   }

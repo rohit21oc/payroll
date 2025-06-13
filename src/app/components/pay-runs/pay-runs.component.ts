@@ -30,6 +30,9 @@ export class PayRunsComponent implements OnInit {
 
   netPay = 0;
 
+  remainingCtc = 0;
+  
+
   constructor(
     private route: ActivatedRoute,
     private employeeService: EmployeeService
@@ -48,12 +51,17 @@ export class PayRunsComponent implements OnInit {
         }
       });
     }
+    
   }
 
   calculateSalary() {
     const totalEarnings = this.basicSalary + this.hra + this.bonus + this.variablePay;
     const totalDeductions = this.pf + this.esi;
     this.netPay = totalEarnings - totalDeductions;
+    
+    // Calculate remaining CTC
+  const usedAmount = this.netPay + totalDeductions;
+  this.remainingCtc = this.ctc - usedAmount;
   }
 
   downloadPayslip() {

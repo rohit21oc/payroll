@@ -10,6 +10,7 @@ import { NavbaarComponent } from './components/navbaar/navbaar.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
+import { EmployeeViewComponent } from './components/employee-view/employee-view.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AddEmployeeComponent } from './components/add-employee/add-employee.com
     EmployeesComponent,
     SidebaarComponent,
     NavbaarComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    EmployeeViewComponent
   ],
   imports: [
     BrowserModule,

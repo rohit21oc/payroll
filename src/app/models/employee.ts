@@ -1,3 +1,10 @@
+export interface BankDetails {
+  bankName: string;
+  accountNumber: string;
+  ifscCode: string;
+  branch: string;
+}
+
 export interface Employee {
   id: string;
   firstName: string;
@@ -22,4 +29,5 @@ export interface Employee {
   bloodGroup: string;
   emergencyContact: string;
   profileImageUrl: string;
+  bankDetails: BankDetails; 
 }

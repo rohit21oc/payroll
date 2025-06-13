@@ -32,7 +32,13 @@ export class AddEmployeeComponent {
     panNumber: '',
     bloodGroup: '',
     emergencyContact: '',
-    profileImageUrl: ''
+    profileImageUrl: '',
+    bankDetails: {
+  bankName: '',
+  accountNumber: '',
+  ifscCode: '',
+  branch: ''
+}
   };
 
   constructor(private empService: EmployeeService, private router: Router) {}

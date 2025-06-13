@@ -4,6 +4,8 @@ import { PayRunsComponent } from './components/pay-runs/pay-runs.component';
 import { EmployeesComponent } from './components/employees/employees.component';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { EmployeeViewComponent } from './components/employee-view/employee-view.component';
+
 const routes: Routes = [
   {path:'',component:DashboardComponent},
   {path:"payruns/:id",component:PayRunsComponent},
@@ -13,6 +15,11 @@ const routes: Routes = [
 },
 { path: 'add-employee', component: AddEmployeeComponent },
 // { path: 'reports', component: ReportsComponent },
+{
+  path: 'employees/view/:id',
+  component: EmployeeViewComponent
+}
+
 
 ];
 
