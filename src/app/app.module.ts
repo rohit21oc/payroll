@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { EmployeeViewComponent } from './components/employee-view/employee-view.component';
+import { PayRunsEmpComponent } from './components/pay-runs-emp/pay-runs-emp.component';
+import { SalarySlipDetailsComponent } from './components/salary-slip-details/salary-slip-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { EmployeeViewComponent } from './components/employee-view/employee-view.
     SidebaarComponent,
     NavbaarComponent,
     AddEmployeeComponent,
-    EmployeeViewComponent
+    EmployeeViewComponent,
+    PayRunsEmpComponent,
+    SalarySlipDetailsComponent
   ],
   imports: [
     BrowserModule,
