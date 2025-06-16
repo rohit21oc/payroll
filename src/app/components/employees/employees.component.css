@@ -15,6 +15,11 @@
   align-items: center;
   margin-bottom: 15px;
 }
+.emp-right-header{
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
 
 .add-btn {
   background-color: #007bff;

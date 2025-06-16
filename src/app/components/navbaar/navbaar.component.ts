@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbaar.component.css']
 })
 export class NavbaarComponent {
-
+ 
 }
