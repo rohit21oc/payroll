@@ -74,7 +74,10 @@ viewOrGenerateSalary(emp: Employee): void {
   } else {
     // Navigate to generate salary page
     if (emp.status === 'Active') {
-      this.router.navigate(['/payruns', emp.id]);
+      this.router.navigate(['/payruns', emp.id], {
+  queryParams: { month: this.selectedMonth }
+});
+
     } else {
       alert("Deactivated employee can't get salary.");
     }

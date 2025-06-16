@@ -14,6 +14,8 @@ import { EmployeeViewComponent } from './components/employee-view/employee-view.
 import { PayRunsEmpComponent } from './components/pay-runs-emp/pay-runs-emp.component';
 import { SalarySlipDetailsComponent } from './components/salary-slip-details/salary-slip-details.component';
 import { LoginComponent } from './components/login/login.component';
+import { ReportComponent } from './components/report/report.component';
+import { YearlySlipsComponent } from './components/yearly-slips/yearly-slips.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { LoginComponent } from './components/login/login.component';
     EmployeeViewComponent,
     PayRunsEmpComponent,
     SalarySlipDetailsComponent,
-    LoginComponent
+    LoginComponent,
+    ReportComponent,
+    YearlySlipsComponent
   ],
   imports: [
     BrowserModule,

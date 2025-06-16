@@ -29,27 +29,29 @@
 
   <div class="recent-section">
   <h3>🆕 Recently Added Employees</h3>
-  <div *ngIf="recentEmployees.length > 0; else noData">
-    <table class="recent-table">
-      <thead>
-        <tr>
-          <th>Emp ID</th>
-          <th>Name</th>
-          <th>Designation</th>
-          <th>Department</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let emp of recentEmployees">
-          <td>{{ emp.id }}</td>
-          <td>{{ emp.firstName }} {{ emp.lastName }}</td>
-          <td>{{ emp.designation }}</td>
-          <td>{{ emp.department }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <ng-template #noData>
-    <p class="no-data">No recent employees found.</p>
-  </ng-template>
+  
+<div *ngIf="recentEmployees && recentEmployees.length > 0">
+  <table class="recent-table">
+    <thead>
+      <tr>
+        <th>Emp ID</th>
+        <th>Name</th>
+        <th>Designation</th>
+        <th>Department</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of recentEmployees">
+      <td>{{ emp.id }}</td>
+      <td>{{ emp.firstName }} {{ emp.lastName }}</td>
+      <td>{{ emp.designation }}</td>
+      <td>{{ emp.department }}</td>
+    </tr>
+    </tbody>
+  </table>
 </div>
+<ng-template #noData>
+  <p class="no-data">No recent employees found.</p>
+</ng-template>
+
+

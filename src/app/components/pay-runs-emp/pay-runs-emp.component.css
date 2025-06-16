@@ -36,9 +36,15 @@ h2 {
   border-collapse: collapse;
 }
 
+.salary-table th{
+  background-color: #4a4a4a;
+  color: #fff;
+  
+}
+
 .salary-table th, .salary-table td {
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #000;
   text-align: left;
 }
 

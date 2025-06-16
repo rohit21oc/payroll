@@ -16,11 +16,14 @@ export class DashboardComponent implements OnInit {
   departmentCount = 0;
   recentEmployees: Employee[] = [];
 
-  constructor(private employeeService: EmployeeService, private router: Router) {}
+  constructor(
+    private employeeService: EmployeeService,
+    private router: Router
+  ) {}
 
  ngOnInit(): void {
   this.employeeService.getEmployees().subscribe((data: Employee[]) => {
-    console.log('All Employees:', data); // 👉 Check here
+    console.log('All Employees:', data);
 
     this.employees = data;
     this.totalEmployees = data.length;
@@ -28,20 +31,20 @@ export class DashboardComponent implements OnInit {
     this.inactiveEmployees = data.filter(emp => emp.status === 'Inactive' || emp.status === 'Deactivated').length;
     this.departmentCount = new Set(data.map(emp => emp.department)).size;
 
-    this.recentEmployees = [...data].reverse().slice(0, 2);
-    console.log('Recent:', this.recentEmployees); // 👉 Check here
+    this.recentEmployees = [...data.slice(-2).reverse()];
+    console.log('Recent Employees:', this.recentEmployees);
   });
 }
 
   goToAddEmployee() {
-  this.router.navigate(['/add-employee']);
-}
+    this.router.navigate(['/add-employee']);
+  }
 
-goToAllEmployees() {
-  this.router.navigate(['/employees']);
-}
+  goToAllEmployees() {
+    this.router.navigate(['/employees']);
+  }
 
-goToReports() {
-  this.router.navigate(['/reports']);
-}
+  goToReports() {
+    this.router.navigate(['/report']);
+  }
 }

@@ -14,7 +14,8 @@ export class PayRunsComponent implements OnInit {
   @ViewChild('paySlip', { static: false }) paySlipElement!: ElementRef;
 
   employee!: Employee;
-  payMonth: string = new Date().toISOString().substring(0, 7); // YYYY-MM
+  
+  payMonth: string = (new Date().getMonth() + 1).toString().padStart(2, '0'); // YYYY-MM
   payYear: number = new Date().getFullYear();
 
   // Earnings
@@ -52,16 +53,28 @@ nol: number = 0;  // No. of Leaves
   ) {}
 
   ngOnInit(): void {
-    const empId = this.route.snapshot.paramMap.get('id');
-    if (empId) {
-      this.employeeService.getEmployeeById(empId).subscribe(emp => {
-        this.employee = emp;
-        this.basicSalary = emp.basicSalary;
-        this.ctc = emp.ctc;
-        this.calculateSalary();
-      });
-    }
+  const empId = this.route.snapshot.paramMap.get('id');
+  const selectedMonth = this.route.snapshot.queryParamMap.get('month');
+
+  if (selectedMonth) {
+    this.payMonth = selectedMonth; // set payMonth (bound to <input type="month">)
+    this.payYear = parseInt(selectedMonth.split('-')[0]); // extract year
+  } else {
+    this.payMonth = new Date().toISOString().substring(0, 7);
+    this.payYear = new Date().getFullYear();
   }
+
+  if (empId) {
+    this.employeeService.getEmployeeById(empId).subscribe(emp => {
+      this.employee = emp;
+      this.basicSalary = emp.basicSalary;
+      this.ctc = emp.ctc;
+      this.calculateSalary();
+    });
+  }
+}
+
+
 
   calculateSalary(): void {
     this.totalEarnings =

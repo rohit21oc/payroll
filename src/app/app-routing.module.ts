@@ -9,6 +9,8 @@ import { PayRunsEmpComponent } from './components/pay-runs-emp/pay-runs-emp.comp
 import { SalarySlipDetailsComponent } from './components/salary-slip-details/salary-slip-details.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './components/auth.guard';
+import { ReportComponent } from './components/report/report.component';
+import { YearlySlipsComponent } from './components/yearly-slips/yearly-slips.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},
@@ -29,7 +31,11 @@ const routes: Routes = [
   path: 'employees/view/:id',
   component: EmployeeViewComponent, 
   canActivate: [AuthGuard]
-}
+},
+{
+  path:'report',component:ReportComponent, canActivate: [AuthGuard]
+},
+{ path: 'payruns/yearly-slips/:empId', component: YearlySlipsComponent }
 
 
 ];
