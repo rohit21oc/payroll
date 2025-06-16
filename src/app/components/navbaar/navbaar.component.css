@@ -19,3 +19,9 @@
 .nav-links a:hover {
   text-decoration: underline;
 }
+
+.logOutBtn{
+    border: none;
+    border-radius: 5px;
+
+}

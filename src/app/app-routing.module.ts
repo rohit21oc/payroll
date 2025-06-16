@@ -7,21 +7,28 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EmployeeViewComponent } from './components/employee-view/employee-view.component';
 import { PayRunsEmpComponent } from './components/pay-runs-emp/pay-runs-emp.component';
 import { SalarySlipDetailsComponent } from './components/salary-slip-details/salary-slip-details.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './components/auth.guard';
 
 const routes: Routes = [
-  {path:'',component:DashboardComponent},
-  {path:"payruns",component:PayRunsEmpComponent},
-  {path:"payruns/:id",component:PayRunsComponent},
-  { path: 'payruns/salarySlip-details/:salaryId', component: SalarySlipDetailsComponent },
+  {path:'',redirectTo:'login',pathMatch:'full'},
+  {path:'login',component:LoginComponent},
+
+  { path: 'admin-dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  {path:"payruns",component:PayRunsEmpComponent, canActivate: [AuthGuard]},
+  {path:"payruns/:id",component:PayRunsComponent, canActivate: [AuthGuard]},
+  { path: 'payruns/salarySlip-details/:salaryId', component: SalarySlipDetailsComponent, canActivate: [AuthGuard] },
   {
   path: 'employees',
-  component: EmployeesComponent
+  component: EmployeesComponent,
+   canActivate: [AuthGuard]
 },
-{ path: 'add-employee', component: AddEmployeeComponent },
+{ path: 'add-employee', component: AddEmployeeComponent, canActivate: [AuthGuard] },
 // { path: 'reports', component: ReportsComponent },
 {
   path: 'employees/view/:id',
-  component: EmployeeViewComponent
+  component: EmployeeViewComponent, 
+  canActivate: [AuthGuard]
 }
 
 

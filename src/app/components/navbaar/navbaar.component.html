@@ -1,6 +1,9 @@
 <nav class="custom-navbar">
   <div class="nav-links">
-    <a routerLink="/">Home</a>
+   
+    <a routerLink="/admin-dashboard">Home</a>
     <a href="https://tvminfotech.com" target="_blank">TVM Infotech</a>
+     <a routerLink="/login" *ngIf="!isLoggedIn">Login</a>
+    <button (click)="logout()" *ngIf="isLoggedIn" class=" logOutBtn"> <i class="ri-logout-circle-line"></i> Logout</button>
   </div>
 </nav>

@@ -2,8 +2,10 @@
   <h2>Active Employees</h2>
   <div class="emp-right-header">
   <button class="add-btn" (click)="navigateToAddEmployee()">Add Employee</button>
-  <button class="add-btn" (click)="navigateToAddEmployee()">Import</button>
-
+  <div>
+    <input type="file" (change)="onFileChange($event)" accept=".xlsx, .xls" />
+<button class="btn btn-success" (click)="uploadData()" [disabled]="!excelEmployees.length">Import</button>
+  </div>
   </div>
 </div>
 

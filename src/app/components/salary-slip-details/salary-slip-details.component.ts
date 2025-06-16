@@ -62,8 +62,8 @@ calculateTotalDeductions(): number {
     const options = {
       margin: 0.2,
       filename: `${this.salary.salaryId}-PaySlip.pdf`,
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2 },
+      image: { type: 'jpeg', quality: 1 },
+      html2canvas: { scale: 5 },
       jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
     };
     html2pdf().from(element).set(options).save();
