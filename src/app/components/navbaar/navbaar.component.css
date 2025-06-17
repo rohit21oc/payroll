@@ -2,6 +2,11 @@
   background-color: #343a40;
   color: white;
   padding: 0.75rem 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 11;
 }
 
 .nav-links {
@@ -20,8 +25,15 @@
   text-decoration: underline;
 }
 
-.logOutBtn{
-    border: none;
-    border-radius: 5px;
+.logOutBtn {
+  border: none;
+  border-radius: 5px;
+  background-color: #495057;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+}
 
+.logOutBtn:hover {
+  background-color: #6c757d;
 }

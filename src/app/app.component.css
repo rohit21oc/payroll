@@ -1,9 +1,10 @@
-.router-outlet{
-    margin-left: 200px;
+.main-container {
+  margin-left: 200px;
+  margin-top: 60px;
 }
 
 @media (max-width: 768px) {
-  .router-outlet{
+  .main-container {
     margin-left: 0;
-}
+  }
 }
